@@ -1,24 +1,24 @@
 return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		require("render-markdown").setup({
-			render_modes = true,
-			heading = {
-				width = "block",
-				min_width = 45,
-			},
-			code = {
-				width = "block",
-				min_width = 75,
-			},
-			pipe_table = { preset = "round" },
-		}),
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
 		main = "render-markdown",
 		opts = {},
 		name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+		config = function()
+			require("render-markdown").setup({
+				render_modes = true,
+				heading = {
+					width = "block",
+					min_width = 45,
+				},
+				code = {
+					width = "block",
+					min_width = 75,
+				},
+				pipe_table = { preset = "round" },
+			})
+		end,
 	},
 	{
 		"jannis-baum/vivify.vim",
